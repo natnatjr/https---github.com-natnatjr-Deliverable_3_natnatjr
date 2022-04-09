@@ -31,7 +31,6 @@ public class CardMatchingGame {
         }
     }
 
-    // store the DeckCards in the board with shuffleDeck() method
     public static void shuffleDeck() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -41,8 +40,6 @@ public class CardMatchingGame {
         }
     }
 
-    // create a method that will check if the user's input is valid with parameters
-    // String [][] board, int row, int col
     public static boolean isValid(String[][] board, int row, int col) {
         if (row < 0 || row > 3 || col < 0 || col > 3) {
             return false;
