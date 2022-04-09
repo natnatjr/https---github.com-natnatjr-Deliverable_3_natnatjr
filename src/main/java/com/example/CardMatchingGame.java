@@ -65,18 +65,34 @@ public class CardMatchingGame {
         System.out.println("Column: ");
         int col = scanner.nextInt();
 
-        // check if the user's input is valid
+        // checks if the user's input is valid, but make sure the user doesn't see the
+        // card
+        // Make user match two cards of the same type
         if (isValid(board, row, col)) {
-            System.out.println("You flipped the " + board[row][col] + " card!");
-            // store the card in the cards array
-            cards[row][col] = board[row][col];
-            // set the card in the board to null
-            board[row][col] = null;
-            // print the board
-            printBoard();
+            System.out.println("You flipped the card: " + board[row][col]);
+            System.out.println("Please enter the row and column of the card you want to flip: ");
+            System.out.println("Row: ");
+            int row2 = scanner.nextInt();
+            System.out.println("Column: ");
+            int col2 = scanner.nextInt();
+            if (isValid(board, row2, col2)) {
+                System.out.println("You flipped the card: " + board[row2][col2]);
+                if (board[row][col].equals(board[row2][col2])) {
+                    System.out.println("You matched the two cards!");
+                    board[row][col] = null;
+                    board[row2][col2] = null;
+                } else {
+                    System.out.println("Sorry, you didn't match the two cards!");
+                    board[row][col] = "X";
+                    board[row2][col2] = "X";
+                }
+            } else {
+                System.out.println("Sorry, you didn't enter a valid row and column!");
+            }
         } else {
-            System.out.println("Invalid input!");
+            System.out.println("Sorry, you didn't enter a valid row and column!");
         }
+        printBoard();
 
     }
 }
