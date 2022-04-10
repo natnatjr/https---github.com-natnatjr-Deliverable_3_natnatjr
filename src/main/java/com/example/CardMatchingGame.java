@@ -23,7 +23,7 @@ public class CardMatchingGame {
     public static void printBoard() {
 
         for (int i = 0; i < 4; i++) {
-            System.out.println("  |  ");
+            System.out.println("    ");
             for (int j = 0; j < 4; j++) {
                 System.out.print(board[i][j] + "  |  ");
             }
@@ -79,12 +79,12 @@ public class CardMatchingGame {
                 System.out.println("You flipped the card: " + board[row2][col2]);
                 if (board[row][col].equals(board[row2][col2])) {
                     System.out.println("You matched the two cards!");
-                    board[row][col] = null;
-                    board[row2][col2] = null;
+                    board[row][col] = "x";
+                    board[row2][col2] = "x";
                 } else {
                     System.out.println("Sorry, you didn't match the two cards!");
-                    board[row][col] = "X";
-                    board[row2][col2] = "X";
+                    board[row][col] = "X!";
+                    board[row2][col2] = "X!";
                 }
             } else {
                 System.out.println("Sorry, you didn't enter a valid row and column!");
@@ -93,6 +93,5 @@ public class CardMatchingGame {
             System.out.println("Sorry, you didn't enter a valid row and column!");
         }
         printBoard();
-
     }
 }
